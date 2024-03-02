@@ -1,0 +1,162 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+
+
+/* header */
+
+
+
+.icon{
+    width: 50px;
+    height: 50px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px ;
+    position: sticky;
+    top: 0px;
+    background-color: #00c16d;
+    
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+li a {
+    text-decoration: none;
+}
+
+
+
+
+/* main */
+main{
+    min-height: 100vh;
+    margin-top: auto;
+    background-color:#004443;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    width:auto;
+}
+.title div{
+    background-color:#00755c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+h1{
+    color: #ffff00;
+    padding: 2rem;
+    font-size: 2rem;
+    width: fit-content;
+}
+h1 span{
+    color:#00c16c;
+}
+
+.cardContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+}
+.card1{
+    border-radius: 10px;
+    border: solid black 2px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin: 1rem;
+
+}
+.card1 div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card1 h3{
+    background-color: cadetblue;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+.card1 h3:hover{
+background-color: rgb(1, 58, 99);
+color: rgb(1, 183, 207) ;
+scale: 1.15;
+transition-duration: 300ms;
+}
+
+
+.card1 div img{
+    height: 200px;
+    width: 200px;
+    border-radius: 30px;
+    
+}
+
+.card1 p {
+    padding: 1rem;
+}
+
+
+
+
+
+
+/* footer */
+
+
+footer{
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 300px;
+    background-color: #00755c;
+    min-height: 100px;
+}
+
+.redes img{
+    width: 50px;
+    height: 50px;
+}
+.redes ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
+}
+ul {
+    list-style-type: none;
+}
+
+
+
+
+
+/* colores https://paletadecolores.com.ar/paleta/002e34/004443/00755c/00c16c/90ff17/ */

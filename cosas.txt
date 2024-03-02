@@ -1,0 +1,88 @@
+
+const productos = [
+    { id: 1, nombre: "soga de pvc", precio: 2500, cantidadEnStock: 50 },
+    {
+        id: 2,
+        nombre: "soga de acero",
+        precio: 7500,
+        cantidadEnStock: 27,
+    },
+    {
+        id: 3,
+        nombre: "soga de freestyle",
+        precio: 9000,
+        cantidadEnStock: 12,
+    },
+    {
+        id: 4,
+        nombre: "mancuernas",
+        precio: 22400,
+        cantidadEnStock: 16,
+    },
+    {
+        id: 5,
+        nombre: "chaleco lastre",
+        precio: 36500,
+        cantidadEnStock: 19,
+    },
+    {
+        id: 6,
+        nombre: "barra de dominadas",
+        precio: 52500,
+        cantidadEnStock: 7,
+    },
+    {
+        id: 7,
+        nombre: "magnesio por kg",
+        precio: 20000,
+        cantidadEnStock: 10,
+    },
+    {
+        id: 8,
+        nombre: "anillas",
+        precio: 30000,
+        cantidadEnStock: 17,
+    },
+];
+
+
+//COSAS QUE QUIERO QUE HAGA EL PROGRAMA
+
+que tome mas ordenes de compra, LISTO
+que reste la cantidad de STOCK del objeto dentro del array LISTO
+que sume los precios totales de cada uno de los elementos
+
+
+
+
+
+this.tokken = tokken;
+
+ let tokken = "";
+    for (let i = 0; i < tokken.length<7; i++) {
+        tokken += (Math.random*10)
+        
+    }
+
+ordenesDeCompra.push(new Compra(productosEncontrados[(indice - 1)], cantidad, tokken));
+
+
+
+
+
+dou  
+
+
+
+let indice = prompt("Digite el numero el del objeto ")
+    if (indice>0&&indice<=(arrProductos.length-1)) {
+        
+        let cantidad = prompt("Digite la cantidad que quiere comprar")
+        while (cantidad > productosEncontrados[(indice - 1)].cantidadEnStock) {
+            alert("La cantidad que desea comprar es mayor al stock lo sentimos");
+            cantidad = prompt("Digite la cantidad que quiere comprar");
+        }
+    } else{
+        indice = prompt("Usted ha ingresado un numero erroneo, pruebe nuevamente");
+
+    }
