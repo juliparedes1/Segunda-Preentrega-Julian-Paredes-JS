@@ -43,36 +43,18 @@ let banderaCompras = false;
 
 while (!banderaCompras) {
 
-    let ingreso = prompt("Ingrese el producto que desea, si desea ver el nombre de los productos presione 0");
+    let ingreso = prompt("Ingrese el producto que desea, si desea ver el catalogo de los productos presione 0");
     //si el ingreso no contiene nada entonces pide que ingrese correctamente el nombre de un elemento
     while (ingreso == "" || ingreso == "0") {
-        if (ingreso == "0") {
-            const rta = [], valores = [];
-            arrProductos.forEach((el) => {
-                rta.push(el.nombre);
-                valores.push(el.precio);
-            });
-            for (let i = 0; i < rta.length; i++) {
-                mostrarMixto.push(rta[i]);
-                mostrarMixto.push(valores[i]);
-            }
-            //aca si presiono el cero, muestra los elementos y sus valores unitarios
-            alert(mostrarMixto.join("\n"));
-        }
-        ingreso = prompt("Ingrese un nombre valido, si desea ver el nombre de los productos presione 0");
+        mostrarCatalogo(ingreso);
+        ingreso = prompt("Ingrese un nombre valido, si desea ver el catalogo de los productos presione 0");
     }
     // tuve que usar un let para poder modificar el codigo de abajo
     let productosEncontrados = arrProductos.filter((el) => {
         return el.nombre.includes(ingreso);
     });
     // valida que si no se encontro ningun elemento dentro del array se escriba nuevamente otro nombre, por si se equivoco en el tipeo
-    if (productosEncontrados.length == 0) {
-        ingreso = prompt("Ingrese un nombre valido, no se encontraron productos con ese nombre");
-        productosEncontrados = arrProductos.filter((el) => {
-            return el.nombre.includes(ingreso);
-        });
-        
-    }
+    productosEncontrados = validarProductosEncontrados(productosEncontrados);
     // muestra cuales son los elementos que coinciden con la busqueda y su cantidad en stock
     productosEncontrados.forEach((iterator, i = 0) => {
         alert(`Ustes ha encontrado: ${iterator.nombre} \n en stock: ${iterator.cantidadEnStock} \n digite  ${i + 1} para seleccionarlo`);
@@ -81,9 +63,9 @@ while (!banderaCompras) {
 
     //verifica que tanto el indice seleccionado sea logico y que la cantidad no supere el stock
     let indice = parseInt(prompt("Digite el numero el del objeto "));
-    while(!(indice > 0 && indice <= productosEncontrados.length)) {
-    indice = prompt("Usted ha ingresado un numero erroneo, pruebe nuevamente");
-    }; 
+    while (!(indice > 0 && indice <= productosEncontrados.length)) {
+        indice = prompt("Usted ha ingresado un numero erroneo, pruebe nuevamente");
+    };
     let cantidad = prompt("Digite la cantidad que quiere comprar")
     while (cantidad > productosEncontrados[(indice - 1)].cantidadEnStock) {
         alert("La cantidad que desea comprar es mayor al stock lo sentimos")
@@ -115,4 +97,32 @@ const precioTotal = totalDeCompras.reduce((acc, actual) => {
 
 alert(`el precio total es de ${precioTotal}`);
 
+// esta funcion es la q valida que los productos encontrados sean distinto de cero
+function validarProductosEncontrados(productosEncontrados) {
+    while (productosEncontrados.length == 0) {
+        ingreso = prompt("Ingrese un nombre valido, no se encontraron productos con ese nombre, si presiona 0 accede al catalogo");
+        mostrarCatalogo(ingreso);
+        productosEncontrados = arrProductos.filter((el) => {
+            return el.nombre.includes(ingreso);
+        });
+    }
+    return productosEncontrados;
+}
 
+//esta funcion muestra el catalogo de elementos 
+
+function mostrarCatalogo(ingreso) {
+    if (ingreso == "0") {
+        const rta = [], valores = [];
+        arrProductos.forEach((el) => {
+            rta.push(el.nombre);
+            valores.push(el.precio);
+        });
+        for (let i = 0; i < rta.length; i++) {
+            mostrarMixto.push(rta[i]);
+            mostrarMixto.push(valores[i]);
+        }
+        //aca si presiono el cero, muestra los elementos y sus valores unitarios
+        alert(mostrarMixto.join("\n"));
+    }
+}
