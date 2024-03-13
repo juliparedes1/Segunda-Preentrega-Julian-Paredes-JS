@@ -2,7 +2,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    
 }
 
 
@@ -14,7 +13,7 @@
     width: 50px;
     height: 50px;
 }
-header{
+.header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,6 +21,7 @@ header{
     position: sticky;
     top: 0px;
     background-color: #00c16d;
+    z-index: 1;
     
 }
 
@@ -35,6 +35,11 @@ li a {
     text-decoration: none;
 }
 
+#inicio main {
+    background: rgb(0,0,0);
+    background: linear-gradient(121deg, rgba(0,0,0,1) 48%, rgba(0,193,109,1) 48%);
+    
+}
 
 
 
@@ -43,6 +48,10 @@ main{
     min-height: 100vh;
     margin-top: auto;
     background-color:#004443;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 .title{
     display: flex;
@@ -75,8 +84,16 @@ h1 span{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
     margin-top: 60px;
 }
+.divisor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 .card1{
     border-radius: 10px;
     border: solid black 2px;
@@ -124,7 +141,63 @@ transition-duration: 300ms;
 
 
 
+/* PRODUCTOS */
+.buscador{
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+}
+input{
+    padding: 10px;
+    width: 350px;
+    padding-right: 35px;
+    border-radius: 5px 0 0 5px;
+    border: 0;
+    outline: none;
+    font-size: 1rem;
 
+}
+
+.buscador-boton{
+    background-color: #00c16d;
+    width: 30px;
+    height: 40px;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    border: 0;
+    outline: none;
+    margin: auto;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-compra{
+    background-color: #00c16d;
+    outline: 0;
+    border: 0;
+    padding: 10px;
+    width: fit-content;
+    height: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    border-radius: 5px 0 7px 0;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.506) 1px 1px 10px 1px;
+}
+.boton-compra:hover{
+    transform: scale(1.2);
+    transition: all 200ms;
+    background-color: #00755c;
+    color: #fff;
+}
+.boton-compra:active{
+    color: #ffff00;
+    background-color: #004443;
+}
 
 
 /* footer */
@@ -155,8 +228,127 @@ ul {
     list-style-type: none;
 }
 
+.slider{
+    overflow: hidden;
+    width: 90%;
 
+}
+
+.slider--inner{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    transition: all 0.5s ease-in;
+}
+
+.slider--inner img{
+    margin: 50px 100px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    width: inherit;
+
+}
+
+.img-carrousel{    
+    width: 100vw;
+    height: 450px;
+
+}
 
 
 
 /* colores https://paletadecolores.com.ar/paleta/002e34/004443/00755c/00c16c/90ff17/ */
+
+
+
+/* pagina de ingreso */
+
+.ingreso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00755c42;
+    flex-direction: column;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.ingreso--titulo{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    background-color: #00755c;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+.ingreso h3{
+    color: #ffff00;
+    padding: .8rem;
+}
+
+.ingreso input{
+    background-color: #00755c;
+    color: #fff;
+    margin: 10px;
+}
+
+.ingreso form ::placeholder{
+    color: #ffff00;
+}
+
+.ingreso a {
+    background-color: #00755c;
+    border-radius: 10px;
+    padding: 15px;
+    text-decoration: none;
+
+
+}
+
+.ingreso a:active{
+    color: #ffff00;
+}
+
+
+/* Registro */
+#registro {
+    background: rgb(0,193,109);
+    background: linear-gradient(121deg, rgba(0,193,109,1) 48%, rgba(0,0,0,1) 48%);
+}
+
+#registro main{
+    background-color: inherit;
+}
+
+.form-registro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#header-registro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    background-color: #00444396;
+    z-index: 1;
+}
+
+#header-registro a {
+    text-decoration: none;
+    color: #ffff00;
+}
+#header-registro a:visited{
+    color: #ffff00;
+}
+
+.cambioColor{
+    color: #ffff00;
+}
