@@ -35,7 +35,9 @@ arrProductos.push(new Producto(5, "chaleco de lastre", 36500, 19,"../img/chaleco
 arrProductos.push(new Producto(6, "barra de dominadas", 52500, 7,"../img/barra.png"));
 arrProductos.push(new Producto(7, "magnesio por kg", 20000, 10,"../img/IMG_20170428_185009web-600x600.png"));
 arrProductos.push(new Producto(8, "anillas", 30000, 17,"../img/anillas.jpg"));
-//////////////////////////////////////////////
+
+
+//asignacion de Constantes y variables
 
 
 const buscar = document.querySelector(".buscador--barra");
@@ -48,8 +50,12 @@ const PTotal = document.querySelector(".precio-total-articulos");
 const articulosDelCarrito = document.querySelector(".articulos-añadidos");
 const botonBorrarCarrito = document.createElement('button');
         botonBorrarCarrito.textContent = "Vaciar Carrito";
-        botonBorrarCarrito.classList.add("boton-borrar")
+        botonBorrarCarrito.classList.add("boton-borrar");
         contenedorCarrito.append(botonBorrarCarrito);
+const botonFinalizarCompra = document.createElement("button");
+        botonFinalizarCompra.textContent = "FinalizarCompra";
+        botonFinalizarCompra.classList.add("boton-borrar");
+        contenedorCarrito.append(botonFinalizarCompra)
 
         
 
@@ -61,10 +67,13 @@ function borrarCarrito() {
         localStorage.removeItem("carrito");
         articulosDelCarrito.innerHTML="";
         PTotal.innerText="El carrito esta Vacio";
+        
+        
+    }
     
-
-}
-
+    botonBorrarCarrito.addEventListener("click",()=>{
+        borrarCarrito();
+    });
 
 // la funcion funciona igual que la de abajo (mostrarContenidoCarrito) pero no la utilizo xq prefiero el if
 /* function mostrarConTernario (){
@@ -99,10 +108,38 @@ function mostrarContenidoCarrito (){
     
 }
 
+//funcionalidad para terminar la compra
 
-botonBorrarCarrito.addEventListener("click",()=>{
+function TerminarCompar(){
+    let arrPrecios = [];
+    carrito.map((element)=>{
+        arrPrecios.push(element.precio);
+    })
+    let ValorFinal = arrPrecios.reduce((acc,actual)=>{
+        return acc + actual;
+        
+    },0)
+    carrito.length !=0 
+    ? Swal.fire(`Compra Realizada, Precio total: ${ValorFinal} `)
+    :Swal.fire({
+        title: "<strong>El carrito esta vacio</strong>",
+        icon: "warning",
+        html: `
+        `,
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText: `
+        Volver a la tienda
+        `,
+    })
+    
+}
+
+botonFinalizarCompra.addEventListener("click",()=>{
+    TerminarCompar();
     borrarCarrito();
 })
+
 
 
 //mostrar todos los articulos cuando se cargue la pagina
@@ -154,9 +191,9 @@ function mostrarProductos() {
     });
     
     //aca lo converti en funcion para que si doy click al boton de comprar me actualice el stock
-    
     //Esta constante se crea aca abajo porque primero deben suceder los eventos de filtrado
 
+    //Actualizacion: ya no es necesaria pero no la quiero borrar por miedo a q algo se buguee, en la proxima entrega lo modifico
     botoncitos= document.querySelectorAll(".boton-compra");
 
     contenedorAuxiliar.addEventListener("click",(e)=>{
@@ -167,10 +204,7 @@ function mostrarProductos() {
             const compra = new Compra(nombre, precioNumero);
             carrito.push(compra);
             localStorage.setItem("carrito", JSON.stringify(carrito));
-            console.log();
-            console.log(carrito);
             articulosDelCarrito.innerHTML=""
-
             let precioTotal = 0;
             carrito.forEach((element)=>{
                 const {producto, precio} = element;
@@ -183,7 +217,6 @@ function mostrarProductos() {
     })
     
     
-
     
 
 

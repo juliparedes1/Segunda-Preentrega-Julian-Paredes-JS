@@ -417,6 +417,7 @@ ul {
     width: 90%;
     border: 2px solid black;
     margin-bottom: 50px;
+    min-height: 150px;
 }
 
 

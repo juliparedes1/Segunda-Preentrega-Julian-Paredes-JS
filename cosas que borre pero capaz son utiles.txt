@@ -174,3 +174,16 @@ function mostrarCatalogo(ingreso) {
 
 
                 ///////////////////////
+
+
+
+
+
+
+                //////COSAS A REALIZAR,
+                MEJORAR DISEÑO
+                Cambio de color del carrito cuando hay elementos dentro
+                Mejorar diseño del carrito
+                Agregar el boton de finalizar la compra, como te vas a olvidar de eso salamin
+                eliminar la pagina que sobra
+                

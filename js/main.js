@@ -10,6 +10,6 @@ setInterval(()=>{
         index = 0;
     }
 
-}, 3000);
+}, 2000);
 
 // Aca no se como hacer para que queden todas las imagenes centradas, se me desfazan unos pixeles cada vez que gira el carrusel
