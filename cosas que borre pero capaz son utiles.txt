@@ -126,3 +126,51 @@ function mostrarCatalogo(ingreso) {
         alert(mostrarMixto.join("\n"));
     }
 }
+
+
+
+/// .CARD CONTAINER ESTE ERA EL CONTENIDO
+
+<div class="card1">
+                    <div><img src="../img/soga1.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+                <div class="card1">
+                    <div><img src="../img/soga2.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+                <div class="card1">
+                    <div><img src="../img/soga 3.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+                <div class="card1">
+                    <div><img src="../img/soga4.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+                <div class="card1">
+                    <div><img src="../img/soga1.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+                <div class="card1">
+                    <div><img src="../img/soga2.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+                <div class="card1">
+                    <div><img src="../img/soga 3.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+                <div class="card1">
+                    <div><img src="../img/soga4.jpg" alt="soga"></div>
+                    <button class="boton-compra">Producto 1</button >
+                    <p>descripcion</p>
+                </div>
+
+
+                ///////////////////////

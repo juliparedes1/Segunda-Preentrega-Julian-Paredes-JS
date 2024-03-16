@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>tercera Entrega coder</title>
 </head>
@@ -17,30 +18,28 @@
                 </h1>
             </div>
         </section>
-            <div class="ingreso">
-                <div class="ingreso--titulo">
-                    <h3>Inicio De Sesion</h3>
-                </div>
-                <form>
-                    <div>
-                        <input type="text" class="Usuario" required placeholder="Usuario">
-                    </div>
-                    <div>
-
-                        <input type="text" class="Contraseña" required placeholder="Contraseña">
-                    </div>
-                    <div>
-
-                        <input type="submit" class="submmit" value="Iniciar" >
-                    </div>
-                </form>
-                <p>No tienenes una cuenta ?</p>
-                <a href="pages/Registro.html">Registrarse</a>
-                <p class="aviso"></p>
+        <div class="ingreso">
+            <div class="ingreso--titulo">
+                <h3>Inicio De Sesion</h3>
             </div>
+            <form class="ingreso--form">
 
-    
+                <input type="text" class="Usuario form--valores" required placeholder="Usuario">
+
+                <input type="password" class="Contraseña form--valores" required placeholder="Contraseña">
+
+                <input type="submit" class="submmit form--valores" value="Iniciar">
+            </form>
+            <p>No tienenes una cuenta ?</p>
+            <a href="pages/Registro.html">Registrarse</a>
+            <p class="aviso"></p>
+        </div>
+
+
     </main>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="js/Inicio.js"></script>
 <script src="js/main.js"></script>
+
 </html>

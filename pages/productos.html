@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <div>
             <a href="#">
                 <img src="../icons/jump-rope_3363992.png" alt="icono" class="icon">
@@ -23,6 +23,9 @@
                 <li><a href="contactanos.html">Contactanos</a></li>
             </ul>
         </nav>
+        <div>
+            <a href="#carrito" class="carrito"><img src="../img/bx-cart-alt.svg"></a>
+        </div>
     </header>
     <main>
         <section class="title">
@@ -36,54 +39,22 @@
             <input type="text" class="buscador--barra" placeholder="buscar...">
             <button class="buscador-boton"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-        <section class="cardContainer">
-            <div class="divisor">
-                <div class="card1">
-                    <div><img src="../img/soga1.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-                <div class="card1">
-                    <div><img src="../img/soga2.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-                <div class="card1">
-                    <div><img src="../img/soga 3.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-                <div class="card1">
-                    <div><img src="../img/soga4.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-            </div>
-            <div class="divisor">
-                <div class="card1">
-                    <div><img src="../img/soga1.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-                <div class="card1">
-                    <div><img src="../img/soga2.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-                <div class="card1">
-                    <div><img src="../img/soga 3.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-                <div class="card1">
-                    <div><img src="../img/soga4.jpg" alt="soga"></div>
-                    <button class="boton-compra">Producto 1</button >
-                    <p>descripcion</p>
-                </div>
-            </div>
-            
+        <section  class="contenedorAuxiliar">
+            <article class="cardContainer">
 
+            </article>
+                <!-- CONTENIDO DINAMICO  -->
         </section>
+
+        <section id="carrito">
+            <!-- carrito --> 
+            <ul class="articulos-añadidos">
+                
+            </ul>
+            
+            <p class="precio-total-articulos">El carrito esta vacio</p>
+        </section>
+
     </main>
     <footer>
         <section class="">
@@ -98,5 +69,5 @@
         </section>
     </footer>
 </body>
-<script src="../js/main.js"></script>
+<script src="../js/productos.js"></script>
 </html>
