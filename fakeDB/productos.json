@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nombre": "soga de pvc",
+        "precio": 2500,
+        "cantidadEnStock": 50,
+        "img": "../img/soga1.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "soga de acero",
+        "precio": 7500,
+        "cantidadEnStock": 27,
+        "img": "../img/soga acero.jpeg"
+    },
+    {
+        "id": 3,
+        "nombre": "soga de freestyle",
+        "precio": 9800,
+        "cantidadEnStock": 12,
+        "img": "../img/soga4.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "mancuernas",
+        "precio": 22400,
+        "cantidadEnStock": 16,
+        "img": "../img/mancuernas.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "chaleco de lastre",
+        "precio": 36500,
+        "cantidadEnStock": 19,
+        "img": "../img/chaleco de lastre.png"
+    },
+    {
+        "id": 6,
+        "nombre": "barra de dominadas",
+        "precio": 52500,
+        "cantidadEnStock": 7,
+        "img": "../img/barra.png"
+    },
+    {
+        "id": 7,
+        "nombre": "magnesio por kg",
+        "precio": 20000,
+        "cantidadEnStock": 10,
+        "img": "../img/IMG_20170428_185009web-600x600.png"
+    },
+    {
+        "id": 8,
+        "nombre": "anillas",
+        "precio": 30000,
+        "cantidadEnStock": 17,
+        "img": "../img/anillas.jpg"
+    }
+]

@@ -216,6 +216,12 @@ input{
     background-color: #004443;
 }
 
+.noEncontrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
 
 /* footer */
 
@@ -400,8 +406,14 @@ ul {
     padding: 10px;
     outline: none;
     border: none;
-
 }
+
+.coloreado{
+    background-color: #e42e00;
+    transform: initial;
+    transition: all 200ms;
+}
+
 .carrito img{
     width: 30px;
 }

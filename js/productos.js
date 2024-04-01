@@ -1,20 +1,4 @@
 
-
-// creacion de clase constructora
-
-class Producto {
-    constructor(id, nombre, precio, cantidadEnStock, img) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.cantidadEnStock = cantidadEnStock;
-        this.img = img
-    }
-    reduccionDeStock(cantidadRequerida) {
-        return (this.cantidadEnStock - cantidadRequerida);
-    }
-}
-
 class Compra {
     constructor(producto, precio) {
         this.producto = producto;
@@ -25,16 +9,25 @@ class Compra {
         return this.producto.precio * this.cantidad
     }
 }
-//creacion del array contenedor de objetos producto,
-const arrProductos = [];
-arrProductos.push(new Producto(1, "soga de pvc", 2500, 50, "../img/soga1.jpg"));
-arrProductos.push(new Producto(2, "soga de acero", 7500, 27, "../img/soga acero.jpeg"));
-arrProductos.push(new Producto(3, "soga de freestyle", 9800, 12, "../img/soga4.jpg"));
-arrProductos.push(new Producto(4, "mancuernas", 22400, 16,"../img/mancuernas.jpg" ));
-arrProductos.push(new Producto(5, "chaleco de lastre", 36500, 19,"../img/chaleco de lastre.png" ));
-arrProductos.push(new Producto(6, "barra de dominadas", 52500, 7,"../img/barra.png"));
-arrProductos.push(new Producto(7, "magnesio por kg", 20000, 10,"../img/IMG_20170428_185009web-600x600.png"));
-arrProductos.push(new Producto(8, "anillas", 30000, 17,"../img/anillas.jpg"));
+
+const arrProductos= [];
+
+const recibirProductos = async ()=>{
+
+    try{
+        const prods = await fetch("../fakeDB/productos.json");
+        const data = await prods.json();
+        data.forEach(producto =>{
+            arrProductos.push(producto);
+        })
+    }
+    catch{
+        console.log(err);
+    }
+
+    
+}
+recibirProductos();
 
 
 //asignacion de Constantes y variables
@@ -45,6 +38,7 @@ const contenidoDinamicoTarjetas = document.querySelector(".cardContainer");
 const contenedorAuxiliar = document.querySelector(".contenedorAuxiliar");
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const contenedorCarrito = document.getElementById("carrito");
+const iconoCarrito = document.querySelector(".carrito");
 let botoncitos = document.querySelectorAll(".boton-compra");
 const PTotal = document.querySelector(".precio-total-articulos");
 const articulosDelCarrito = document.querySelector(".articulos-añadidos");
@@ -67,29 +61,26 @@ function borrarCarrito() {
         localStorage.removeItem("carrito");
         articulosDelCarrito.innerHTML="";
         PTotal.innerText="El carrito esta Vacio";
+        iconoCarrito.classList.remove("coloreado");
         
         
     }
     
     botonBorrarCarrito.addEventListener("click",()=>{
         borrarCarrito();
+        Toastify({
+            text: "El carrito esta vacio",
+            duration: 2000,
+            gravity: "bottom", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            style: {
+            background: "linear-gradient(to right, #c11100, #ffce00)",
+            },
+            onClick: function(){} // Callback after click
+        }).showToast();
     });
 
-// la funcion funciona igual que la de abajo (mostrarContenidoCarrito) pero no la utilizo xq prefiero el if
-/* function mostrarConTernario (){
-    let precioTotal = 0;
-    carrito.length==0
-    ? precioTotal=0
-    :carrito.forEach((element)=>{
-    const {producto, precio} = element;
-    articulosDelCarrito.innerHTML += 
-    `<li>${producto} : ${precio}<li>`
-    precioTotal+=precio
-    PTotal.innerText= `$ ${precioTotal}`
-})
-} */
-
-
+    //esto pinta todas las tarjetas al inicio ya que estan de forma dinamica
 
 function mostrarContenidoCarrito (){
         let precioTotal = 0;
@@ -131,14 +122,11 @@ function TerminarCompar(){
         confirmButtonText: `
         Volver a la tienda
         `,
-    })
+    });
+    iconoCarrito.classList.remove("coloreado");
     
 }
 
-botonFinalizarCompra.addEventListener("click",()=>{
-    TerminarCompar();
-    borrarCarrito();
-})
 
 
 
@@ -160,9 +148,25 @@ function mostrarProductos() {
         
     }
 
-    window.onload = mostrarProductos();
-    window.onload = mostrarContenidoCarrito();
+    function colorearCarrito() {
+        iconoCarrito.classList.add("coloreado")
+    }
     
+    // esto verifica que si hay elementos en el carrito se ponga de color rojo mostrando que hay elementos dentro
+    setTimeout(()=>{
+        if (carrito.length!=0) {
+            colorearCarrito();
+        }
+    },50)
+    
+    // Este bloque espera que este todo cargado para luego poder pintar las tarjetas
+    setTimeout(()=>{
+        window.onload = mostrarProductos();
+        window.onload = mostrarContenidoCarrito();
+    }, 300)
+    
+
+    //eventos
     
     //barra buscadora de articulos
     
@@ -174,7 +178,8 @@ function mostrarProductos() {
             return el.nombre.includes(buscar.value);
         })
         if (tarjetas.length == 0) {
-            contenidoDinamicoTarjetas.innerHTML = `<div> <h1>Lo Sentimos, No hemos encontrado ningun articulo con ese nombre</h1> </div>`
+            contenidoDinamicoTarjetas.innerHTML = `<div> <h2>Lo Sentimos, No hemos encontrado ningun articulo con ese nombre</h2></div>`
+            contenidoDinamicoTarjetas.classList.add("noEncontrado")
         }
         tarjetas.forEach(element => {
             const {nombre, precio, img} = element;
@@ -190,12 +195,13 @@ function mostrarProductos() {
         
     });
     
-    //aca lo converti en funcion para que si doy click al boton de comprar me actualice el stock
-    //Esta constante se crea aca abajo porque primero deben suceder los eventos de filtrado
+    botonFinalizarCompra.addEventListener("click",()=>{
+        TerminarCompar();
+        borrarCarrito();
+    })
+    
 
-    //Actualizacion: ya no es necesaria pero no la quiero borrar por miedo a q algo se buguee, en la proxima entrega lo modifico
-    botoncitos= document.querySelectorAll(".boton-compra");
-
+    // agregar a carrito
     contenedorAuxiliar.addEventListener("click",(e)=>{
         if (e.target.classList.contains("boton-compra")) {
             const precio = e.target.getAttribute("data-valor");
@@ -213,10 +219,17 @@ function mostrarProductos() {
                 precioTotal+=precio
             })
             PTotal.innerText= `$ ${precioTotal}`
+            colorearCarrito();
+            Toastify({
+                text: `Se ha agregado ${nombre}` ,
+                duration: 2000,
+                gravity: "bottom", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
         }
     })
     
-    
-    
-
-
